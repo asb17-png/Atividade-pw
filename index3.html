@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Notas em Letras</title>
+</head>
+<body>
+    <h1>Conversor de Notas em Letras</h1>
+    <p id="resultado"></p>
+
+    <script>
+        const entrada = prompt("Insira uma nota de 0 a 100:");
+        const nota = Number(entrada);
+        const resultado = document.getElementById("resultado");
+        let letra;
+
+        if (entrada === null || entrada.trim() === "" || !Number.isFinite(nota) || nota < 0 || nota > 100) {
+            resultado.textContent = "Insira uma nota válida entre 0 e 100.";
+        } else {
+            switch (true) {
+                case nota >= 90:
+                    letra = "A";
+                    break;
+                case nota >= 80:
+                    letra = "B";
+                    break;
+                case nota >= 70:
+                    letra = "C";
+                    break;
+                case nota >= 60:
+                    letra = "D";
+                    break;
+                default:
+                    letra = "F";
+            }
+
+            resultado.textContent = `A nota ${nota} corresponde à letra ${letra}.`;
+        }
+    </script>
+</body>
+</html>

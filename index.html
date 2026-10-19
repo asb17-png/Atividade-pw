@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Par ou Ímpar</title>
+</head>
+<body>
+    <h1>Verificação Par ou Ímpar</h1>
+    <p id="resultado"></p>
+
+    <script>
+        const entrada = prompt("Insira um número:");
+        const numero = Number(entrada);
+        const resultado = document.getElementById("resultado");
+
+        if (entrada !== null && entrada.trim() !== "" && Number.isFinite(numero)) {
+            const mensagem = numero % 2 === 0
+                ? `${numero} é par.`
+                : `${numero} é ímpar.`;
+
+            console.log(mensagem);
+            resultado.textContent = mensagem;
+        } else {
+            const mensagem = "Por favor, insira um número válido.";
+
+            console.log(mensagem);
+            resultado.textContent = mensagem;
+        }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fatorial</title>
+</head>
+<body>
+    <h1>Fatorial de um Número</h1>
+    <p id="resultado"></p>
+
+    <script>
+        const entrada = prompt("Digite um número inteiro de 0 a 10:");
+        const numero = Number(entrada);
+        const resultado = document.getElementById("resultado");
+
+        if (
+            entrada === null ||
+            entrada.trim() === "" ||
+            !Number.isInteger(numero) ||
+            numero < 0 ||
+            numero > 10
+        ) {
+            resultado.textContent = "Digite um número inteiro entre 0 e 10.";
+        } else {
+            let fatorial = 1;
+
+            for (let multiplicador = 1; multiplicador <= numero; multiplicador++) {
+                fatorial *= multiplicador;
+            }
+
+            const mensagem = `${numero}! = ${fatorial}`;
+            console.log(mensagem);
+            resultado.textContent = mensagem;
+        }
+    </script>
+</body>
+</html>

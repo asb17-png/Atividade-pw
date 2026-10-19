@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tradutor de Cores</title>
+</head>
+<body>
+    <h1>Tradutor de Cores</h1>
+    <p id="resultado"></p>
+
+    <script>
+        const entrada = prompt("Digite o nome de uma cor em inglês:");
+        const cor = entrada === null ? "" : entrada.trim().toLowerCase();
+        const resultado = document.getElementById("resultado");
+        let traducao;
+
+        switch (cor) {
+            case "red":
+                traducao = "vermelho";
+                break;
+            case "blue":
+                traducao = "azul";
+                break;
+            case "green":
+                traducao = "verde";
+                break;
+            case "yellow":
+                traducao = "amarelo";
+                break;
+            case "black":
+                traducao = "preto";
+                break;
+            case "white":
+                traducao = "branco";
+                break;
+            case "orange":
+                traducao = "laranja";
+                break;
+            case "purple":
+                traducao = "roxo";
+                break;
+            case "pink":
+                traducao = "rosa";
+                break;
+            case "brown":
+                traducao = "marrom";
+                break;
+            case "gray":
+            case "grey":
+                traducao = "cinza";
+                break;
+            default:
+                traducao = "Cor desconhecida";
+        }
+
+        resultado.textContent = traducao === "Cor desconhecida"
+            ? traducao
+            : `A tradução de ${cor} é ${traducao}.`;
+    </script>
+</body>
+</html>

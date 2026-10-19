@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculo de Média</title>
+</head>
+<body>
+    <h1>Calculo de Média</h1>
+    <p id="resultado"></p>
+
+    <script>
+        const notas = [];
+
+        for (let indice = 1; indice <= 4; indice++) {
+            const entrada = prompt(`Insira a ${indice}ª nota:`);
+
+            if (entrada === null || entrada.trim() === "" || !Number.isFinite(Number(entrada))) {
+                notas.length = 0;
+                break;
+            }
+
+            notas.push(Number(entrada));
+        }
+
+        const resultado = document.getElementById("resultado");
+
+        if (notas.length === 4) {
+            const media = notas.reduce((soma, nota) => soma + nota, 0) / notas.length;
+            const situacao = media >= 7 ? "Aprovado" : "Reprovado";
+
+            resultado.textContent = `Média: ${media.toFixed(2)}. ${situacao}.`;
+        } else {
+            resultado.textContent = "Não foi possível calcular a média. Insira quatro notas válidas.";
+        }
+    </script>
+    
+</body>
+</html>

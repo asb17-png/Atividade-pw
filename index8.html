@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificação de Formulário</title>
+    <style>
+        .erro {
+            border: 2px solid red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Verificar formulário</h1>
+    <form id="formulario">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome">
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email">
+
+        <button type="submit">Enviar</button>
+    </form>
+
+    <script>
+        const formulario = document.getElementById("formulario");
+        const campos = [
+            document.getElementById("nome"),
+            document.getElementById("email")
+        ];
+
+        function validarCampo(campo) {
+            const vazio = campo.value.trim() === "";
+            campo.classList.toggle("erro", vazio);
+            campo.setAttribute("aria-invalid", vazio);
+            return !vazio;
+        }
+
+        campos.forEach((campo) => {
+            campo.addEventListener("blur", () => validarCampo(campo));
+        });
+
+        formulario.addEventListener("submit", (evento) => {
+            evento.preventDefault();
+            campos.forEach(validarCampo);
+        });
+    </script>
+</body>
+</html>
